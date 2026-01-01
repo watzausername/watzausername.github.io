@@ -9,10 +9,14 @@
 
   <style>
     :root {
-      --bg: #fefefe;
+      --bg: #f5f5f5;
       --primary: #000000;
-      --accent: #FFE600;
-      --border: 4px solid #000;
+      --yellow: #FFE600;
+      --green: #5FE5A0;
+      --orange: #FF9F40;
+      --blue: #7DD3FC;
+      --pink: #FF6B9D;
+      --border: 5px solid #000;
     }
 
     * {
@@ -28,12 +32,21 @@
       line-height: 1.3;
     }
 
-    a { color: #000; font-weight: 800; }
+    a {
+      color: #000;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.1s;
+    }
+
+    a:hover {
+      transform: translateY(-2px);
+    }
 
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 32px;
+      padding: 40px 32px;
     }
 
     header {
@@ -42,31 +55,33 @@
       align-items: center;
       border-bottom: var(--border);
       padding-bottom: 24px;
-      margin-bottom: 64px;
+      margin-bottom: 80px;
     }
 
     .logo {
       font-weight: 900;
-      font-size: 28px;
-      letter-spacing: -1px;
+      font-size: 32px;
+      letter-spacing: -1.5px;
     }
 
     .badge {
       border: var(--border);
-      padding: 8px 14px;
-      font-weight: 700;
+      padding: 10px 18px;
+      font-weight: 800;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 14px;
+      background: var(--yellow);
+      box-shadow: 4px 4px 0 #000;
     }
 
     section {
-      margin-bottom: 120px;
+      margin-bottom: 140px;
     }
 
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 60px;
       align-items: center;
     }
 
@@ -80,40 +95,51 @@
     }
 
     h1 {
-      font-size: clamp(40px, 6vw, 72px);
+      font-size: clamp(44px, 6vw, 80px);
       font-weight: 900;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+      line-height: 0.95;
     }
 
     h2 {
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(36px, 4.5vw, 56px);
       font-weight: 900;
-      margin-bottom: 32px;
+      letter-spacing: -2px;
+      margin-bottom: 40px;
     }
 
     h3 {
-      font-size: 20px;
-      font-weight: 800;
+      font-size: 24px;
+      font-weight: 900;
       margin-bottom: 12px;
+      letter-spacing: -0.5px;
     }
 
     p {
-      font-size: 16px;
-      margin-bottom: 16px;
-      max-width: 520px;
+      font-size: 18px;
+      margin-bottom: 20px;
+      max-width: 540px;
+      line-height: 1.5;
     }
 
     .cta {
       display: inline-block;
-      background: var(--accent);
+      background: var(--yellow);
       color: #000;
       border: var(--border);
-      padding: 16px 28px;
-      font-size: 18px;
+      padding: 20px 36px;
+      font-size: 20px;
       font-weight: 900;
       text-decoration: none;
-      box-shadow: 6px 6px 0 #000;
+      box-shadow: 8px 8px 0 #000;
+      transition: transform 0.1s, box-shadow 0.1s;
+      margin-top: 8px;
+    }
+
+    .cta:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0 #000;
     }
 
     .mock {
@@ -124,32 +150,33 @@
 
     .iphone-frame {
       position: relative;
-      width: 280px;
+      width: 300px;
       aspect-ratio: 9 / 19.5;
       border: 6px solid #000;
-      border-radius: 40px;
+      border-radius: 44px;
       background: #000;
-      box-shadow: 10px 10px 0 #000;
+      box-shadow: 12px 12px 0 #000;
       padding: 14px;
     }
 
     .iphone-frame::before {
       content: "";
       position: absolute;
-      top: 8px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 120px;
-      height: 24px;
+      width: 130px;
+      height: 28px;
       background: #000;
-      border-radius: 0 0 16px 16px;
+      border-radius: 0 0 18px 18px;
+      z-index: 10;
     }
 
     .iphone-screen {
       width: 100%;
       height: 100%;
-      background: #fff;
-      border-radius: 28px;
+      background: #e8e8e8;
+      border-radius: 32px;
       overflow: hidden;
     }
 
@@ -157,28 +184,53 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
     }
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
     }
 
-    .feature, .card {
+    .feature {
       border: var(--border);
-      padding: 24px;
-      box-shadow: 6px 6px 0 #000;
+      padding: 32px;
+      box-shadow: 8px 8px 0 #000;
+      background: #fff;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .feature:nth-child(1) { border-color: var(--yellow); }
+    .feature:nth-child(2) { border-color: var(--green); }
+    .feature:nth-child(3) { border-color: var(--orange); }
+    .feature:nth-child(4) { border-color: var(--blue); }
+
+    .feature:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0 #000;
+    }
+
+    .card {
+      border: var(--border);
+      padding: 40px;
+      box-shadow: 8px 8px 0 #000;
+      background: #fff;
     }
 
     footer {
       border-top: var(--border);
       padding-top: 32px;
-      font-size: 14px;
+      font-size: 15px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
+      font-weight: 700;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -190,7 +242,18 @@
         justify-self: center;
         margin-top: 40px;
       }
-    }
+
+      .iphone-frame {
+        width: 260px;
+      }
+
+      .container {
+        padding: 32px 20px;
+      }
+
+      section {
+        margin-bottom: 100px;
+      }
     }
   </style>
 </head>
@@ -202,13 +265,12 @@
       <div class="badge">iOS App</div>
     </header>
 
-    <!-- HERO -->
     <section id="home" class="hero">
       <div>
-        <h1>Build Miscipline.<br>75 Days.<br>No Excuses.</h1>
+        <h1>Build Discipline.<br>75 Days.<br>No Excuses.</h1>
         <p>
           Track your progress through the 75-day challenge with daily check-ins,
-          progress photos, and zero fluff.
+          progress photos, and zero fluff. Every task tracked. Every day counted.
         </p>
         <a href="#" class="cta">Download on iOS</a>
       </div>
@@ -216,31 +278,30 @@
       <div class="mock">
         <div class="iphone-frame">
           <div class="iphone-screen">
-            <img src="screenshot.png" alt="75 Challenge App Screenshot" />
+            <img src="simulator_screenshot_-_iphone_17_pro_-_2025-12-29_at_20.45.35.png" alt="75 Challenge App Daily Checklist" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
     <section id="features">
       <h2>What it does</h2>
       <div class="features">
         <div class="feature">
           <h3>Daily Checklist</h3>
-          <p>Every rule. One screen.</p>
+          <p>Track workouts, diet, water intake, reading, and progress photos. Every rule, one screen.</p>
         </div>
         <div class="feature">
-          <h3>Progress Photos</h3>
-          <p>Visual accountability, every day.</p>
+          <h3>Visual Progress</h3>
+          <p>See your transformation with daily progress photos and a 75-day completion calendar.</p>
         </div>
         <div class="feature">
           <h3>Streak Tracking</h3>
-          <p>Miss once? Start over.</p>
+          <p>Stay accountable with real-time streak counting. Miss once? The challenge resets.</p>
         </div>
         <div class="feature">
-          <h3>Offline First</h3>
-          <p>No accounts. No syncing. Your data stays with you.</p>
+          <h3>Your Data, Your Device</h3>
+          <p>No accounts. No cloud syncing. Everything stays private and local.</p>
         </div>
       </div>
     </section>
@@ -289,8 +350,8 @@
     <footer>
       <span>© 2025 75 Challenge</span>
       <span>
-        <a href="#support">Support</a> ·
-        <a href="#privacy">Privacy</a>
+        <a href="support.html">Support</a> ·
+        <a href="privacy.html">Privacy</a>
       </span>
     </footer>
   </div>
