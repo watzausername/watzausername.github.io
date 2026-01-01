@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>75 Challenge – iOS App</title>
 
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #fefefe;
       --primary: #000000;
-      --accent: #ff4d00;
+      --accent: #FFE600;
       --border: 4px solid #000;
     }
 
@@ -97,16 +96,50 @@
     }
 
     .mock {
-      border: var(--border);
-      background: #fff;
-      box-shadow: 8px 8px 0 #000;
+      background: none;
+      box-shadow: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 20px;
-      text-align: center;
-      padding: 40px;
+    }
+
+    .iphone-frame {
+      position: relative;
+      width: 280px;
+      aspect-ratio: 9 / 19.5;
+      border: 6px solid #000;
+      border-radius: 40px;
+      background: #000;
+      box-shadow: 10px 10px 0 #000;
+      padding: 14px;
+    }
+
+    .iphone-frame::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 24px;
+      background: #000;
+      border-radius: 0 0 16px 16px;
+      z-index: 2;
+    }
+
+    .iphone-screen {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .iphone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .features {
@@ -164,8 +197,11 @@
       </div>
 
       <div class="mock">
-        App Screenshot<br>
-        (iPhone Mockup)
+        <div class="iphone-frame">
+          <div class="iphone-screen">
+            <img src="screenshot.png" alt="75 Challenge App Screenshot" />
+          </div>
+        </div>
       </div>
     </section>
 
