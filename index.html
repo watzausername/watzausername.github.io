@@ -70,6 +70,15 @@
       align-items: center;
     }
 
+    .hero > div:first-child {
+      grid-column: 1;
+    }
+
+    .hero > .mock {
+      grid-column: 2;
+      justify-self: end;
+    }
+
     h1 {
       font-size: clamp(40px, 6vw, 72px);
       font-weight: 900;
@@ -173,7 +182,15 @@
     }
 
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero > .mock {
+        justify-self: center;
+        margin-top: 40px;
+      }
+    }
     }
   </style>
 </head>
@@ -280,4 +297,3 @@
 
 </body>
 </html>
-
