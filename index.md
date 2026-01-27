@@ -51,7 +51,15 @@ Our Apps may use third-party services that collect information to provide functi
 - Cloud storage or syncing
 
 These third parties have their own privacy policies, and we encourage you to review them.
-
+                                                                  
+                                                                                
+  We use PostHog, a privacy-focused analytics service, to collect anonymous     
+  usage data that helps us improve the app. This includes which screens you     
+  visit, how often you use the app, and general usage patterns. We do not       
+  collect any personally identifiable information, and all data is aggregated   
+  and anonymized. No account creation is required, and we do not track your     
+  location, contacts, or any other sensitive information. This data is used     
+  solely to understand how users interact with the app so we can make it better.
 ---
 
 ## 5. Advertising
